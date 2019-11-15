@@ -1,1 +1,34 @@
-#!/bin/bash
+#!/bin/sh
+
+nm="Dedup"
+vs="r1"
+dedupversion="""
+        \e[1;42m $nm \e[0m\e[100m version $vs \e[0m
+        De-duplicate files and keep organized on a common place (while copying them as symlinks) and create opposite versions from the same file.
+        \e[100m Created in 11-14-2019 by Daniell Mesquita \e[0m
+"""
+
+if [ "$1" = "" ]; then
+   echo "$dedupversion"
+   echo "Type 'dedup --help' (without quotes) to see a list of available commands."
+fi
+
+# displays help message with a list of commands:
+if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+   echo "        \e[1;42m $nm $vs \e[0m"
+   echo "Use these commands after/together with 'dedup' command."
+   echo "Available commands:"
+   echo "Information:"
+   echo "   --help, -h                  Shows all available commands"
+   echo "   --version, -v               Shows the version of $nm"
+fi
+
+if [ "$1" = "file" ]; then
+   sudo mv $2 /1/libraries/replic
+   sudo ln -s /1/libraries/replic/$2
+   echo "It's so magic! But please note it won't work on filesystems which doesn't supports symbolic links."
+fi
+
+if [ "$1" = "--version" ] || [ "$1" = "-v" ]; then
+   echo "$dedupversion"
+fi
