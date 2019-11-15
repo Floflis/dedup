@@ -21,7 +21,7 @@ fi
 
 echo "Installing Dedup categories and differs..."
 mkdir /1/libraries/replic/.category
-mkdir /1/libraries/replic/.differ
+mkdir /1/libraries/replic/.oppose
 echo "Installing Dedup..."
 sudo cp -f dedup /usr/bin && sudo chmod +x /usr/bin/dedup
 echo "Done! Run 'dedup' command to use it."
