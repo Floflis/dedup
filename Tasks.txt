@@ -1,5 +1,9 @@
 - case is a file, run the cmd without "file" - simply dedup <file>
-- list categories
+- test if a category already exists before creating it
 - easier cmd
+
+Updates which will break compatibility:
 - for new de-duplicing, list all symlinks created with this program, and enables updating them when changing original file
 - move </category/file> <category>
+- can place files without needing to tell category (list all de-dupliced files)
+- hash for de-duplicing files; prevent creating files for already de-dupliced files/folders

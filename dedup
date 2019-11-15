@@ -25,6 +25,8 @@ if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
    echo "  file <file/folder>                  De-duplicate a file/folder by name without any category"
    echo "  new-category <name>                 Creates a new category"
 #   echo "  move-file <file/folder> <category>  Moves a uncategorized file/folder to a category"
+   echo "  place <name>                        Creates a 'copy' (symlink) of a uncategorized de-dupliced file"
+   echo "  place -c <category> <name>          Creates a 'copy' of a categorized de-dupliced file (can also use --with-category flag)"
    echo "----------------------------------------------------------"
    echo "Please note you can't change the origin files, or its symlinks will not work. So, be careful when choosing a category for a de-dupliced file."
 fi
@@ -49,6 +51,16 @@ fi
          ln -s /1/libraries/replic/$2
          echo "De-dupliced '$2'. It's so magic! But please note it won't work on filesystems which doesn't supports symbolic links."
 fi
+fi
+
+if [ "$1" = "place" ]; then
+   if [ "$2" = "-c" ] || [ "$1" = "--with-category" ]
+      then
+         ln -s /1/libraries/replic/.category/$3/$4 .
+      else
+         ln -s /1/libraries/replic/$2 .
+fi
+   echo "Please note it won't work on filesystems which doesn't supports symbolic links."
 fi
 
 #if [ "$1" = "move-file" ]; then
