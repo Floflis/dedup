@@ -9,9 +9,9 @@ if [ ! -e /1 ]
       echo "Creating /libraries..."
       sudo mkdir /1/libraries
       echo "Creating /libraries/replic..."
-      sudo mkdir /1/libraries/replic
+      sudo mkdir /1/libraries/.replic
       echo "- Setting permissions on /libraries/replic..."
-      sudo chmod -R a+rwX /1/libraries/replic
+      sudo chmod -R a+rwX /1/libraries/.replic
       echo "- Creating root folder inside tree..."
       sudo ln -s / /1/Z-root
       echo "[✓] Basic tree folder now is installed."
@@ -20,8 +20,8 @@ if [ ! -e /1 ]
 fi
 
 echo "Installing Dedup categories and differs..."
-mkdir /1/libraries/replic/.category
-mkdir /1/libraries/replic/.oppose
+mkdir /1/libraries/.replic/.category
+mkdir /1/libraries/.replic/.oppose
 echo "Installing Dedup..."
 sudo cp -f dedup /usr/bin && sudo chmod +x /usr/bin/dedup
 echo "Done! Run 'dedup' command to use it."

@@ -30,34 +30,34 @@ if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
 fi
 
 if [ "$1" = "new-category" ]; then
-   mkdir /1/libraries/replic/.category/$2 && mkdir /1/libraries/replic/.category/$2/.oppose
+   mkdir /1/libraries/.replic/.category/$2 && mkdir /1/libraries/.replic/.category/$2/.oppose
    echo "Created category '$2'."
 fi
 
 if [ "$1" = "file" ]; then
    if [ "$3" != "" ]
       then
-         if [ ! -e /1/libraries/replic/.category/$3 ]; then
+         if [ ! -e /1/libraries/.replic/.category/$3 ]; then
             echo "Category '$3' doesn't exist; but as a nice program, I'll create it for you."
             dedup new-category $3
 fi
-         mv $2 /1/libraries/replic/.category/$3
-         ln -s /1/libraries/replic/.category/$3/$2
+         mv $2 /1/libraries/.replic/.category/$3
+         ln -s /1/libraries/.replic/.category/$3/$2
          echo "De-dupliced '$2' in category '$3'."
       else
-         mv $2 /1/libraries/replic
-         ln -s /1/libraries/replic/$2
+         mv $2 /1/libraries/.replic
+         ln -s /1/libraries/.replic/$2
          echo "De-dupliced '$2'. It's so magic! But please note it won't work on filesystems which doesn't supports symbolic links."
 fi
 fi
 
 #if [ "$1" = "move-file" ]; then
-#   if [ ! -e /1/libraries/replic/.category/$3 ]
+#   if [ ! -e /1/libraries/.replic/.category/$3 ]
 #      then
 #         echo "Category '$3' doesn't exist; but as a nice program, I'll create it for you."
 #         dedup new-category $3
 #fi
-#   mv /1/libraries/replic/$2 /1/libraries/replic/.category/$3
+#   mv /1/libraries/.replic/$2 /1/libraries/.replic/.category/$3
 #   echo "File '$2' now haves a category, and it is '$3'!"
 #fi
 
