@@ -74,5 +74,5 @@ fi
 #fi
 
 if [ "$1" = "--version" ] || [ "$1" = "-v" ]; then
-   echo "$dedupversion"
+   echo "$vs"
 fi
