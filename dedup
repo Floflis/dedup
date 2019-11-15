@@ -21,12 +21,19 @@ if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
    echo "Information:"
    echo "   --help, -h                  Shows all available commands"
    echo "   --version, -v               Shows the version of $nm"
+   echo "   file <file/folder>          De-duplicate a file/folder by name"
+   echo "   new-category <name>         Creates a new category."
 fi
 
 if [ "$1" = "file" ]; then
    sudo mv $2 /1/libraries/replic
    sudo ln -s /1/libraries/replic/$2
    echo "It's so magic! But please note it won't work on filesystems which doesn't supports symbolic links."
+fi
+
+if [ "$1" = "new-category" ]; then
+   mkdir /1/libraries/replic/.category/$2
+   echo "Created category '$2'."
 fi
 
 if [ "$1" = "--version" ] || [ "$1" = "-v" ]; then
