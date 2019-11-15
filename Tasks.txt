@@ -1,1 +1,2 @@
 - for new de-duplicing, list all symlinks created with this program, and enables updating them when changing original file
+- move </category/file> <category>
