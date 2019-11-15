@@ -29,6 +29,11 @@ if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
    echo "Please note you can't change the origin files, or its symlinks will not work. So, be careful when choosing a category for a de-dupliced file."
 fi
 
+if [ "$1" = "new-category" ]; then
+   mkdir /1/libraries/replic/.category/$2 && mkdir /1/libraries/replic/.category/$2/.oppose
+   echo "Created category '$2'."
+fi
+
 if [ "$1" = "file" ]; then
    if [ "$3" != "" ]
       then
@@ -44,11 +49,6 @@ fi
          ln -s /1/libraries/replic/$2
          echo "De-dupliced '$2'. It's so magic! But please note it won't work on filesystems which doesn't supports symbolic links."
 fi
-fi
-
-if [ "$1" = "new-category" ]; then
-   mkdir /1/libraries/replic/.category/$2
-   echo "Created category '$2'."
 fi
 
 #if [ "$1" = "move-file" ]; then
