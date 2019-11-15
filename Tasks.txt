@@ -1,4 +1,8 @@
 - case is a file, run the cmd without "file" - simply dedup <file>
+
+- name files, without extension (creates a folder to add this file, necessary for oppose)
+- oppose <file> <differ>
+
 - test if a category already exists before creating it
 - easier cmd
 
