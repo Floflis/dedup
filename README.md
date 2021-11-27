@@ -4,7 +4,7 @@ De-duplicate files and keep organized on a common place (while copying them as s
 
 # Installing
 
-Open terminal on Gitty folder, and type following by pressing `[ENTER]`:
+Open terminal on Dedup folder, and type following by pressing `[ENTER]`:
 
 ```sh
 chmod +x install.sh && sh ./install.sh
